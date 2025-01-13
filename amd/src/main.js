@@ -363,6 +363,15 @@ export default class Decision extends Base {
             }
         });
 
+        body.off('contextmenu', '.input-group .timestamp-input')
+        .on('contextmenu', '.input-group .timestamp-input', async function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            // Get the current time of the video.
+            let currentTime = await self.player.getCurrentTime();
+            $(this).val(self.convertSecondsToHMS(currentTime));
+        });
+
         body.on('input', '.input-group [type="text"]', function() {
             let dest = [];
             $('#destination-list .input-group').each(function() {
