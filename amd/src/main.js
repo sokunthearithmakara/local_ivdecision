@@ -53,7 +53,7 @@ export default class Decision extends Base {
                 const t = Number(e.originalEvent.detail.time);
                 const firstCantSkip = cantSkip[0];
                 if (t > Number(firstCantSkip.timestamp)) {
-                   await self.player.seek(Number(firstCantSkip.timestamp) - 0.05);
+                    await self.player.seek(Number(firstCantSkip.timestamp) - 0.05);
                 }
                 self.annotations.filter(a => Number(a.timestamp) > Number(firstCantSkip.timestamp)).forEach(a => {
                     $(`#interactions-nav .annotation[data-id=${a.id}]`).addClass('no-pointer');
@@ -364,13 +364,13 @@ export default class Decision extends Base {
         });
 
         body.off('contextmenu', '.input-group .timestamp-input')
-        .on('contextmenu', '.input-group .timestamp-input', async function(e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            // Get the current time of the video.
-            let currentTime = await self.player.getCurrentTime();
-            $(this).val(self.convertSecondsToHMS(currentTime));
-        });
+            .on('contextmenu', '.input-group .timestamp-input', async function(e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                // Get the current time of the video.
+                let currentTime = await self.player.getCurrentTime();
+                $(this).val(self.convertSecondsToHMS(currentTime));
+            });
 
         body.on('input', '.input-group [type="text"]', function() {
             let dest = [];
@@ -426,7 +426,11 @@ export default class Decision extends Base {
 
         let newannotation = JSON.parse(JSON.stringify(annotation));
         newannotation.content = JSON.stringify(dest);
-        const data = await this.render(newannotation, 'json');
+        // We don't need to run the render method every time the content is applied. We can cache the content.
+        if (!self.cache[annotation.id] || self.isEditMode()) {
+            self.cache[annotation.id] = await this.render(newannotation, 'json');
+        }
+        const data = self.cache[annotation.id];
         let $html = `<div class="position-absolute decision text-center mx-auto w-100">
             <h5 class="pt-5 pb-3 bg-white" id="decision-q">
             <i class="mb-2 bi bi-signpost-split-fill" style="font-size: 2em"></i><br>${newannotation.formattedtitle}</h5>`;
