@@ -42,6 +42,7 @@ class main extends \ivplugin_richtext\main {
             'author' => 'tsmakara',
             'authorlink' => 'mailto:sokunthearithmakara@gmail.com',
             'stringcomponent' => 'local_ivdecision',
+            'tutorial' => get_string('tutorialurl', 'local_ivdecision'),
         ];
     }
 

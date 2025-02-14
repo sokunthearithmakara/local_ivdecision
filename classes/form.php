@@ -61,7 +61,9 @@ class form extends \mod_interactivevideo\form\base_form {
             </label><div id="destination-list" class="w-100 mb-3"></div>');
         $mform->addElement('static', 'destination', '', '');
         $mform->addElement('advcheckbox', 'char1', '', get_string('allowskip', 'local_ivdecision'), ["group" => 1], [0, 1]);
-        $this->advanced_form_fields(false, true, true, true);
+        $this->advanced_form_fields([
+            'hascompletion' => false,
+        ]);
         $this->close_form();
         $actionbuttons = '<div class="d-flex justify-content-end mb-3 mt-n3" id="form-action-btns">';
         if ($this->optional_param('id', 0, PARAM_INT) > 0) {

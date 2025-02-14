@@ -23,7 +23,6 @@
 import $ from 'jquery';
 import Base from 'mod_interactivevideo/type/base';
 import DynamicForm from 'core_form/dynamicform';
-import {dispatchEvent} from 'core/event_dispatcher';
 export default class Decision extends Base {
     /**
      * Initializes the decision plugin for interactive videos.
@@ -166,7 +165,7 @@ export default class Decision extends Base {
                 },
                 success: function(data) {
                     const newAnnotation = JSON.parse(data);
-                    dispatchEvent('annotationupdated', {
+                    self.dispatchEvent('annotationupdated', {
                         annotation: newAnnotation,
                         action: 'add'
                     });
@@ -176,7 +175,6 @@ export default class Decision extends Base {
             $('#annotationwrapper table').show();
             $('#addcontent, #importcontent').removeClass('no-pointer-events');
         });
-
     }
 
     /**
@@ -249,7 +247,7 @@ export default class Decision extends Base {
                 },
             }).done(function(data) {
                 const updated = JSON.parse(data);
-                dispatchEvent('annotationupdated', {
+                self.dispatchEvent('annotationupdated', {
                     annotation: updated,
                     action: 'edit'
                 });
@@ -419,7 +417,6 @@ export default class Decision extends Base {
         }
 
         if (dest.length == 0) {
-            window.console.log('No destination found');
             this.player.play();
             return;
         }
