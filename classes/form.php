@@ -47,7 +47,7 @@ class form extends \mod_interactivevideo\form\base_form {
         $mform->addElement(
             'text',
             'title',
-            '<i class="bi bi-question mr-2"></i>' . get_string('destquestion', 'local_ivdecision')
+            '<i class="bi bi-question iv-mr-2"></i>' . get_string('destquestion', 'local_ivdecision')
         );
         $mform->setType('title', PARAM_TEXT);
         $mform->setDefault('title', get_string('defaulttitle', 'mod_interactivevideo'));
@@ -55,9 +55,9 @@ class form extends \mod_interactivevideo\form\base_form {
 
         $mform->addElement('hidden', 'content', $this->optional_param('content', '', PARAM_RAW));
         $mform->setType('content', PARAM_RAW);
-        $mform->addElement('html', '<label class="d-flex align-items-center col-form-label pl-0 w-100 justify-content-between">
-        <span><i class="bi bi-signpost-split-fill mr-2"></i>' . get_string('destination', 'local_ivdecision') .
-            '</span><span class="btn btn-sm btn-primary float-right" id="add-destination"><i class="bi bi-plus-lg"></i></span>
+        $mform->addElement('html', '<label class="d-flex align-items-center col-form-label iv-pl-0 w-100 justify-content-between">
+        <span><i class="bi bi-signpost-split-fill iv-mr-2"></i>' . get_string('destination', 'local_ivdecision') .
+            '</span><span class="btn btn-sm btn-primary iv-float-right" id="add-destination"><i class="bi bi-plus-lg"></i></span>
             </label><div id="destination-list" class="w-100 mb-3"></div>');
         $mform->addElement('static', 'destination', '', '');
         $mform->addElement('advcheckbox', 'char1', '', get_string('allowskip', 'local_ivdecision'), ["group" => 1], [0, 1]);
@@ -67,11 +67,11 @@ class form extends \mod_interactivevideo\form\base_form {
         $this->close_form();
         $actionbuttons = '<div class="d-flex justify-content-end mb-3 mt-n3" id="form-action-btns">';
         if ($this->optional_param('id', 0, PARAM_INT) > 0) {
-            $actionbuttons .= '<button class="btn btn-primary mr-2" id="submitform-submit">'
+            $actionbuttons .= '<button class="btn btn-primary iv-mr-2" id="submitform-submit">'
                 . get_string('savechanges') . '</button><button class="btn btn-secondary" id="cancel-submit">'
                 . get_string('cancel') . '</button>';
         } else {
-            $actionbuttons .= '<button class="btn btn-primary mr-2" id="submitform-submit">' . get_string('submit')
+            $actionbuttons .= '<button class="btn btn-primary iv-mr-2" id="submitform-submit">' . get_string('submit')
                 . '</button><button class="btn btn-secondary" id="cancel-submit">'
                 . get_string('cancel') . '</button>';
         }

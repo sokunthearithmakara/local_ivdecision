@@ -274,10 +274,7 @@ export default class Decision extends Base {
                 let dest = $('[name=content]').val();
                 if (dest == '' || JSON.parse(dest).length == 0) {
                     $('#destination-list').append(`<div class="input-group mb-1 d-none">
-                <div class="input-group-prepend">
-                    <label class="input-group-text">
-                    <i class="bi bi-grip-vertical fs-unset cursor-move"></i></label>
-                </div>
+                <label class="input-group-text"><i class="bi bi-grip-vertical fs-unset cursor-move"></i></label>
                 <input type="text" class="form-control">
                 <input type="text" value="${this.convertSecondsToHMS(this.start)}"
                 placeholder="00:00:00" style="max-width: 120px;" class="form-control timestamp-input">
@@ -290,10 +287,8 @@ export default class Decision extends Base {
                     dest = JSON.parse(dest);
                     dest.forEach((d, i) => {
                         $('#destination-list').append(`<div class="input-group mb-1">
-                    <div class="input-group-prepend">
                     <label class="input-group-text">
                     <i class="bi bi-grip-vertical cursor-move fs-unset"></i></label>
-                    </div>
                     <input type="text" class="form-control" value="${d.title}">
                     <input type="text" value="${this.convertSecondsToHMS(d.timestamp)}"
                     placeholder="00:00:00" style="max-width: 120px;" class="form-control timestamp-input">
@@ -448,7 +443,7 @@ export default class Decision extends Base {
                 $message.append(`<button class="btn btn-secondary btn-rounded position-absolute"
                      id="close-decision" style="right: 1rem; top: 1rem;">
                      ${M.util.get_string('skip', 'local_ivdecision')}
-                     <i class="ml-2 bi bi-chevron-right"></i></button>`);
+                     <i class="iv-ml-2 bi bi-chevron-right"></i></button>`);
             }
             $(document).off('click', '#close-decision').on('click', '#close-decision', function(e) {
                 e.preventDefault();
