@@ -434,17 +434,22 @@ export default class Decision extends Base {
                   <i class="bi bi-chevron-right"></i></a>`;
         });
         $html += '</div>';
-        let $message = $(`<div id="message" style="z-index:1005;display:none;" data-id="${annotation.id}">
+        let $message = $(`<div id="message" style="z-index:1005;display:none;" data-id="${annotation.id}" tabindex="0">
             <div class="modal-body p-0 border" id="content">${$html}</div></div>`);
         $('#video-wrapper').find("#message").remove();
         $('#video-wrapper').append($message);
+
         $message.fadeIn(300, 'swing', async function() {
+            // Set focus on the #message element
+            $('body').addClass('disablekb');
+            document.querySelector(`#message[data-id='${annotation.id}']`).focus();
             if (annotation.char1 == 1) {
                 $message.append(`<button class="btn btn-secondary btn-rounded position-absolute"
                      id="close-decision" style="right: 1rem; top: 1rem;">
                      ${M.util.get_string('skip', 'local_ivdecision')}
                      <i class="iv-ml-2 bi bi-chevron-right"></i></button>`);
             }
+
             $(document).off('click', '#close-decision').on('click', '#close-decision', function(e) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
