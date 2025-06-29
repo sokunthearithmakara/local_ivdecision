@@ -42,7 +42,7 @@ export default class Decision extends Base {
                 return;
             }
             let self = this;
-            $(document).on('timeupdate', async function(e) {
+            $(document).on('timeupdate.decision', async function(e) {
                 const cantSkip = decisions.filter((d) => d.char1 != 1 && !d.viewed);
                 cantSkip.sort((a, b) => a.timestamp - b.timestamp);
                 if (cantSkip.length == 0) {

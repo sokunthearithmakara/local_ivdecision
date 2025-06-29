@@ -30,7 +30,6 @@ class form extends \mod_interactivevideo\form\base_form {
      */
     public function set_data_for_dynamic_submission(): void {
         $data = $this->set_data_default();
-
         $this->set_data($data);
     }
 
