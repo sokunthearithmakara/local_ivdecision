@@ -64,7 +64,7 @@ class form extends \mod_interactivevideo\form\base_form {
             'hascompletion' => false,
         ]);
         $this->close_form();
-        $actionbuttons = '<div class="d-flex justify-content-end mb-3 mt-n3" id="form-action-btns">';
+        $actionbuttons = '<div class="d-flex justify-content-end mb-3 iv-mt-n3" id="form-action-btns">';
         if ($this->optional_param('id', 0, PARAM_INT) > 0) {
             $actionbuttons .= '<button class="btn btn-primary iv-mr-2" id="submitform-submit">'
                 . get_string('savechanges') . '</button><button class="btn btn-secondary" id="cancel-submit">'

@@ -396,6 +396,9 @@ export default class Decision extends Base {
      * @returns {void}
      */
     async runInteraction(annotation) {
+        if (!this.main) {
+            return;
+        }
         // Dismiss all tooltips.
         $('.tooltip').remove();
         await this.player.pause();
