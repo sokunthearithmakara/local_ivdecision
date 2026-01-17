@@ -23,6 +23,8 @@
 import $ from 'jquery';
 import Base from 'mod_interactivevideo/type/base';
 import DynamicForm from 'core_form/dynamicform';
+import {get_string as getString} from 'core/str';
+
 export default class Decision extends Base {
     /**
      * Initializes the decision plugin for interactive videos.
@@ -449,7 +451,7 @@ export default class Decision extends Base {
             if (annotation.char1 == 1) {
                 $message.append(`<button class="btn btn-secondary btn-rounded position-absolute"
                      id="close-decision" style="right: 1rem; top: 1rem;">
-                     ${M.util.get_string('skip', 'local_ivdecision')}
+                     ${await getString('skip', 'local_ivdecision')}
                      <i class="iv-ml-2 bi bi-chevron-right"></i></button>`);
             }
 

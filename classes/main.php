@@ -43,6 +43,7 @@ class main extends \ivplugin_richtext\main {
             'authorlink' => 'mailto:sokunthearithmakara@gmail.com',
             'stringcomponent' => 'local_ivdecision',
             'tutorial' => get_string('tutorialurl', 'local_ivdecision'),
+            'preloadstrings' => false,
         ];
     }
 
@@ -59,6 +60,5 @@ class main extends \ivplugin_richtext\main {
         }
         $dests = array_values($dests);
         return json_encode($dests);
-
     }
 }
