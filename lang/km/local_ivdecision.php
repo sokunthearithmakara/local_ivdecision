@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * English language pack for Decision
+ * Khmer language pack for Decision
  *
  * @package    local_ivdecision
  * @category   string
@@ -25,11 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['allowskip'] = 'អនុញ្ញាតឲ្យរំលង';
+$string['allowskip'] = 'អនុញ្ញាតឱ្យរំលង';
 $string['decisioncontent'] = 'ការសម្រេចចិត្ត';
-$string['decisiondescription'] = 'បញ្ចូលជម្រើសសម្រាប់ផ្លាស់ទីទៅកាន់ខណៈណាមួយក្នុងវីដេអូ';
+$string['decisiondescription'] = 'អនុញ្ញាតឱ្យអ្នកទស្សនាជ្រើសរើសគោលដៅបន្ទាប់។';
 $string['destination'] = 'គោលដៅ';
 $string['destquestion'] = 'សំណួរ';
 $string['pluginname'] = 'ការសម្រេចចិត្ត';
-$string['privacy:metadata'] = 'Decision មិនរក្សាទិន្នន័យបុគ្គលទេ';
+$string['privacy:metadata'] = 'កម្មវិធីជំនួយការសម្រេចចិត្តមិនរក្សាទុកទិន្នន័យបុគ្គលទេ។';
 $string['skip'] = 'រំលង';
+$string['tutorialurl'] = 'https://www.youtube.com/watch?v=t-Muj7ZnwaQ';
+$string['youmusthaveatleastonedestination'] = 'អ្នកត្រូវតែមានគោលដៅត្រឹមត្រូវយ៉ាងហោចណាស់មួយ។';
